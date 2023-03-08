@@ -1,6 +1,8 @@
 import { getRandomInteger, getRandomElement } from '../utils.js';
 import dayjs from 'dayjs';
 
+const ROUTE_POINTS_COUNT = 20;
+
 const POINT_TYPES = ['taxi', 'bus', 'train', 'ship', 'drive', 'flight', 'check-in', 'sightseeing', 'restaurant'];
 
 const DESTINATION_NAMES = ['Amsterdam', 'Chamonix', 'Geneva', 'London'];
@@ -83,4 +85,6 @@ const generateRoutePoint = (id) => {
   };
 };
 
-export {generateRoutePoint, destinations, offersByType };
+const routePoints = Array.from({length: ROUTE_POINTS_COUNT}).map((value, index) => generateRoutePoint (index + 1));
+
+export {routePoints, destinations, offersByType };
